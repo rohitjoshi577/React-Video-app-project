@@ -1,0 +1,28 @@
+.shimmer-flex{
+  display: flex;
+  flex-direction: row;
+  margin-top: 4px;
+  flex-wrap: wrap;
+
+}
+
+.shimmer{
+  height: 150px;
+  width: 250px;
+  background-color: rgb(247, 247, 247);
+  border-radius: 12px;
+
+}
+
+.written{
+  height: 20px;
+  width: 250 px !important;
+  margin-top: 6px;
+  background-color:  rgb(247, 247, 247);
+}
+
+.card{
+  width: 250px;
+  margin-right: 60px;
+  margin-top: 20px;
+}

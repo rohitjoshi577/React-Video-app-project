@@ -1,0 +1,16 @@
+.body-flex{
+  margin-left: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.body-flex-toggle{
+  margin-left: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.body{
+  padding-left: 10px;
+}

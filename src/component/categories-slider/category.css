@@ -1,0 +1,17 @@
+.button{
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  border-radius:5px;
+  padding: 8px 20px 8px 20px;
+  border: none;
+  margin: 5px 10px 5px 10px;
+  color: rgb(71, 71, 71);
+}
+
+.button-slider{
+  margin-top: 60px;
+}
+
+
+
+
