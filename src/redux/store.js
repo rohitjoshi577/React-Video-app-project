@@ -3,6 +3,7 @@ import toggleReducer from "./toggleSlice";
 import fetchApiReducer from "./apiSlice";
 import historyReducer from './historyslice';
 import likeReducer from './likeSlice';
+import savedReducer from './savedslice';
 
 export default configureStore({
   reducer: {
@@ -10,6 +11,6 @@ export default configureStore({
     fetchApi : fetchApiReducer,
     history : historyReducer,
     like : likeReducer,
-
+    saved : savedReducer
   },
 })

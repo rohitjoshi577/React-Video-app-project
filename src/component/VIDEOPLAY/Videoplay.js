@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { ToggleOff } from "../../redux/toggleSlice";
 import "./videoplay.css";
 import { StoreLike ,removeLike} from "../../redux/likeSlice";
+import { SaveVideo } from "../../redux/savedslice";
 
 
 
@@ -69,11 +70,11 @@ function VideoDetail(){
   }
 
   const initialLikevValue = !useSelector(store=>store.like.value.includes(videoObjectId));
-  // const initialsavevalue = ! useSelector(store=>store.saved)
+  const initialsavevalue =  useSelector(store=>store.saved.value.includes(videoObjectId));
 
 
   const[like , setLike] = useState(initialLikevValue);
-  const[saved,setsaved] =useState(false);
+  const[saved,setsaved] =useState(initialsavevalue);
 
   function Like(id){
     dispatch(StoreLike(id))
@@ -85,7 +86,8 @@ function VideoDetail(){
     setLike(true);
   }
 
-  function saveVideo(){
+  function saveVideo(id){
+    dispatch(SaveVideo(id));
     setsaved(true);
   }
 
@@ -110,7 +112,7 @@ function VideoDetail(){
         </div>
 
         <div>
-          {!saved ?<><span className="material-icons queue" onClick={saveVideo}>queue</span></>:
+          {!saved ?<><span className="material-icons queue" onClick={()=>saveVideo(videoObjectId)}>queue</span></>:
           <><span className="material-icons playlist_add_check_circle">playlist_add_check_circle</span></>}
         </div>
 
@@ -119,6 +121,8 @@ function VideoDetail(){
         </div>
 
       </div>
+
+      {/* <Subscribe channelID = {videoData?.author?.channelId}  channelName ={videoData?.author?.title}/> */}
 
       <Description videoData={videoData}/>
 
@@ -174,6 +178,17 @@ function Download(){
     </div>
   )
 }
+
+
+// function Subscribe (props){
+//   console.log(props);
+//   return(
+//     <>
+//     <button>Subscribe {props.channelName} </button>
+    
+//     </>
+//   )
+// }
 
 
 export default VideoPlay;

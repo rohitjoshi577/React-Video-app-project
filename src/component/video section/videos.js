@@ -33,8 +33,6 @@ function Video(){
       console.log(error);
     }
   }
-
-
   return(<>
   {(Videos.length==0)? <Shimmer/> : 
   <>

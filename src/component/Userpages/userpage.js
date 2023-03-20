@@ -3,15 +3,13 @@ import "../video section/videos.css";
 import "./userpage.css";
 import { useSelector} from "react-redux";
 import { Link } from "react-router-dom";
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 
 function UserPage(){
-  const VideoIds =useSelector(store=>store.like.value);
-  // let page =useParams().page;
+  const VideoIds = useParams().page=="liked"? useSelector(store=>store.like.value):useSelector(store=>store.saved.value);
   const [videosData , setVideosData]= useState([]);
   const toggle = useSelector(store=>store.toggle.value);
-  // console.log(toggle);
   useEffect(()=>{
     getVideoData();
   } ,[VideoIds])
@@ -59,13 +57,11 @@ function UserPage(){
                 </div>
                 <div>
                   <p className="data">
-                    Liked
+                    {useParams().page}
                   </p>  
                 </div>
               </div>  
              </div>
-
-             
            </div>
     )
   }

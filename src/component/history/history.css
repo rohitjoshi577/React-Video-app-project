@@ -1,0 +1,35 @@
+.history-body{
+  margin-top: 60px;
+  margin-left: 80px;
+}
+
+.history-body-toggle{
+  margin-top: 60px;
+}
+
+.history-container{
+  background-color: rgb(252, 252, 252);
+  padding : 10px 5px 10px 5px;
+  margin: 5px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.history-container:hover{
+  background-color: rgb(220, 229, 236);
+}
+
+
+.go{
+  margin-right: 20px;
+  color: rgb(190, 190, 190);
+}
+
+.history-texts{
+  margin: 0px;
+  font-weight:lighter;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
