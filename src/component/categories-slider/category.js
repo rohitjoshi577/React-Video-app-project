@@ -17,7 +17,7 @@ function OneButton(props) {
     <div>
       <button className="button" onClick={() => { 
         dispatch(setFetchApi(props.category)) ;
-        dispatch(addToHistory(props.category));
+        dispatch(addToHistory({id: v4() ,search :props.category}));
       }}>
         {props.category}
       </button>

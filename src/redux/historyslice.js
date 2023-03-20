@@ -9,7 +9,6 @@ export const historySlice = createSlice({
   reducers: {
     addToHistory: (state, action) => {
       state.value = [...state.value,action.payload];
-      console.log(state.value);
   }
 
 }
