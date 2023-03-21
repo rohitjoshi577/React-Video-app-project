@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 function Header(){
   const dispatch = useDispatch();
   const [searchquery , setSearchquery]= useState("");
+  const [displayDeleteButton , setDisplayDeleteButton] = useState(false);
 
   function collectSearchInput(event){
     setSearchquery(event.target.value);
@@ -22,6 +23,16 @@ function Header(){
     searchquery.length ?dispatch(addToHistory({id: v4() ,search :searchquery,})) : console.log('cant create empty history');
   }
 
+  function displayDelete(){
+    setDisplayDeleteButton(!displayDeleteButton)
+  }
+
+  function deleteAllData(){
+
+    console.log("deleting all data");
+
+    setDisplayDeleteButton(false);
+  }
   return(
     <>
     <div className="header">
@@ -44,11 +55,24 @@ function Header(){
       </div>
 
       <div>
-      <img src={profilePic} alt="profile-pic" className="profile-pic"/>
+          <span className="material-icons settings" onClick={displayDelete}>settings</span>
       </div>
     </div>
+
+    {displayDeleteButton? <div className="delete-div">
+    <button className="delete-button" onClick={deleteAllData}>
+      <span class="material-icons delete_sweep">delete_sweep</span>
+       <p >Delete data</p>  
+    </button>
+    </div>:
+    null
+    }
     </>
   )
 }
+
+
+
+
 
 export default Header;

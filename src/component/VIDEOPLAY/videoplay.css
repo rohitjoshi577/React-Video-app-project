@@ -111,3 +111,7 @@
   width: 100%;
   padding: 8px;
 }
+
+.queue ,.thumb_up ,.thumb_down ,.channel-name-videoplay ,.playlist_add_check_circle ,.file_download {
+  cursor: pointer;
+}

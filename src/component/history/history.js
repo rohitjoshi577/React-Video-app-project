@@ -19,12 +19,13 @@ function History(){
 
    return(
     <div className={toggle? "history-body":"history-body-toggle"}>
+     <p className='total-history'>{history.length} searches</p>
     {history.map((history)=>{
       return(
-        <Link to="/" key = {history.id}>
-       <div className='history-container' onClick={()=>searchAgain(history.search)}>
+        <Link to="/" key = {history?.id}>
+       <div className='history-container' onClick={()=>searchAgain(history?.search)}>
         <div>
-         <h1 className='history-texts'>{history.search}</h1>
+         <h1 className='history-texts'>{history?.search}</h1>
         </div>
         <div>
          <span className="material-icons go">launch</span>

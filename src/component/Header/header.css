@@ -89,12 +89,15 @@
 }
 
 
-.profile-pic{
-  height: 30px;
-  width: 30px;
-  border-radius: 15px;
-  margin-right: 50px;
+.settings{
+  margin-right: 12px;
   margin-left: 0px;
+  cursor:pointer;
+  color:rgb(140, 140, 140);
+}
+
+.settings:active{
+  transform:rotate(90deg)
 }
 
 @media (max-width : 760px){
@@ -107,10 +110,6 @@
     margin-left: 10px;
   }
 
-  .profile-pic{
-    margin-right: 50px;
-    margin-left: 0px;
-  }
 
   
 
@@ -178,13 +177,37 @@
   .search-bar{
     width: 100px;
   }
+}
 
-  
+.delete-div{
+  position:fixed;
+  top:40px;
+  right: 0px;
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+  z-index: 5;
+  width: 70px;
+}
+
+.delete-button{
+  background-color: rgb(197, 6, 6);
+  border-radius: 35px;
+  font-family: 'Roboto', sans-serif;
+  border-width : 0;
+  padding: 5px;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  height: 70px;
 
 }
 
-
-
+.delete-button:hover{
+  background-color: white;
+  color: rgb(197, 6, 6);
+  border-color: rgb(197, 6, 6);
+  border-width: 1px;
+}
 
 
 

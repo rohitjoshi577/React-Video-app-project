@@ -1,15 +1,21 @@
 import React from "react";
 import "./sidebar.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { setFetchApi } from "../../redux/apiSlice";
 
 function Sidebar(){
+  const dispatch = useDispatch();
+  function defaultSearch(){
+    dispatch(setFetchApi("gaming"));
+    
+  }
   let showSidebar = useSelector((store)=>store.toggle.value);
   return(
     <>
     <div className={showSidebar ? "sidebar-flex" : "sidebar-flex-toggle"}>
     <Link to="/">
-      <div className="sidebar-item">
+      <div className="sidebar-item" onClick={defaultSearch}>
       <span className="material-icons" >home</span>
       <p>Home</p>
       </div>

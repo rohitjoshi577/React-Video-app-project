@@ -34,7 +34,7 @@ function Video(){
     }
   }
   return(<>
-  {(Videos.length==0)? <Shimmer/> : 
+  {(Videos?.length==0)? <Shimmer/> : 
   <>
   <AllVideos Videos={Videos}/>
   </>}
@@ -46,7 +46,7 @@ function Video(){
   function AllVideos(props){
     return(
     <div className="all-video-grid">
-      {props.Videos.map(video=>{
+      {props.Videos?.map(video=>{
         return(
         <Link to={`/watch/${video?.video_id}`} key={v4()}> 
           <VideoCard video={video} />
