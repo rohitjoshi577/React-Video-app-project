@@ -48,8 +48,8 @@ function Video(){
     <div className="all-video-grid">
       {props.Videos?.map(video=>{
         return(
-        <Link to={`/watch/${video?.video_id}`} key={v4()}> 
-          <VideoCard video={video} />
+        <Link to={`/watch/${video?.video_id}`}   key={v4()} style={{textDecoration: 'none' , backgroundColor:"inherit" , color:"inherit"} }> 
+          <VideoCard video={video} key={v4()}/>
         </Link>
         )
       })}

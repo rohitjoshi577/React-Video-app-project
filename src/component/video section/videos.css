@@ -91,10 +91,10 @@ button{
   width: 90%;
 }
 
-a , a:link, a:visited,a:hover, a:active {
+/* a:link,a:hover, a:active{
   text-decoration: none;
-  color: inherit;
-}
+  color: rgb(0,0,0);
+} */
 
 
 

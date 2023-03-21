@@ -172,7 +172,7 @@ function Download(){
     }
     return (
     <div>
-    <a href={link=""? null : link} target="_blank">
+    <a href={link=""? null : link} target="_blank" style={{textDecoration:"none" , backgroundColor:"inherit" , color:"inherit"}}>
     <span className="material-icons file_download" onClick={download}>file_download</span>
     </a>
     </div>

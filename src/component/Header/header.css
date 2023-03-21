@@ -20,6 +20,7 @@
   cursor: pointer;
 }
 
+
 .logo{
   height: 28px;
   padding-bottom: 3px;
@@ -29,13 +30,6 @@
 }
 
 
-.shortlogo{
-  height: 18px;
-  padding-bottom: 3px;
-  margin-left: 30px;
-  display: none;
-  cursor: pointer;
-}
 
 .mid-header{
   padding-bottom: 3px;
@@ -70,30 +64,24 @@
 .search-icon-background{
   height: 28px;
   width: 32px;
-  background-color: rgb(218, 218, 218);
+  background-color: rgb(225, 225, 225);
   border-top-right-radius: 14px;
   border-bottom-right-radius: 14px;
   cursor: pointer;
 }
 
+
 #search{
-  color: rgb(140, 140, 140);
   padding-top: 3px;
   padding-left: 3px;
 }
 
-#apps{
-  color: rgb(140, 140, 140);
-  margin-right: 25px;
-  padding-bottom: 8px;
-}
 
 
 .settings{
   margin-right: 12px;
   margin-left: 0px;
   cursor:pointer;
-  color:rgb(140, 140, 140);
 }
 
 .settings:active{
@@ -101,11 +89,8 @@
 }
 
 @media (max-width : 760px){
-  .logo{
-    display:none;
-  }
 
-  .shortlogo{
+  .logo{
     display: inline-block;
     margin-left: 10px;
   }
@@ -166,7 +151,7 @@
     padding-left: 10px;
   }
 
-  .shortlogo{
+  .logo{
     margin-left: 5px;
   }
 
@@ -187,11 +172,26 @@
   background-color: rgb(255, 255, 255);
   z-index: 5;
   width: 70px;
+  
+}
+
+
+.settings{
+  color: rgb(117, 117, 117);
+}
+
+
+.settings:hover{
+  color: rgb(0, 0, 0);
+}
+
+.settings:active{
+  color: rgb(0, 0, 0);
 }
 
 .delete-button{
   background-color: rgb(197, 6, 6);
-  border-radius: 35px;
+  border-radius: 5px;
   font-family: 'Roboto', sans-serif;
   border-width : 0;
   padding: 5px;

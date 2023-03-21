@@ -1,18 +1,35 @@
-.button{
+.button-inactive{
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   border-radius:5px;
   padding: 8px 20px 8px 20px;
   border: none;
   margin: 5px 10px 5px 10px;
-  color: rgb(71, 71, 71);
+  color: black;
   cursor: pointer;
+  background-color: aliceblue;
 }
 
 .button-slider{
   margin-top: 60px;
 }
 
+.button-inactive:hover{
+  background-color: rgb(1, 1, 58);
+  color: white;
+}
+
+.button-active{
+  background-color: rgb(19, 19, 83);
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  border-radius:5px;
+  padding: 8px 20px 8px 20px;
+  border: none;
+  margin: 5px 10px 5px 10px;
+  cursor:pointer
+}
 
 
 

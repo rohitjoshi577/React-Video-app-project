@@ -14,28 +14,28 @@ function Sidebar(){
   return(
     <>
     <div className={showSidebar ? "sidebar-flex" : "sidebar-flex-toggle"}>
-    <Link to="/">
+    <Link to="/" style={{textDecoration:"none" , backgroundColor:'inherit'}}>
       <div className="sidebar-item" onClick={defaultSearch}>
       <span className="material-icons" >home</span>
       <p>Home</p>
       </div>
     </Link>
 
-      <Link to="/history">
+      <Link to="/history" style={{textDecoration:"none" , backgroundColor:'inherit'}}>
       <div className="sidebar-item">
       <span className="material-icons" >history</span>
       <p>History</p>
       </div>
       </Link>
        
-      <Link to="/user/saved">
+      <Link to="/user/saved" style={{textDecoration:"none" , backgroundColor:'inherit'}}>
       <div className="sidebar-item">
       <span className="material-icons" >subscriptions</span>
       <p>Saved</p>
       </div>
       </Link>
 
-      <Link to="/user/liked">
+      <Link to="/user/liked" style={{textDecoration:"none" , backgroundColor:'inherit'}}>
       <div className="sidebar-item">
       <span className="material-icons" >thumb_up</span>
       <p>Liked</p>

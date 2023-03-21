@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./category.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -12,12 +12,13 @@ import { addToHistory } from "../../redux/historyslice";
 
 function OneButton(props) {
   let dispatch = useDispatch();
-
+  const{index , activeIndex , setActiveIndex} = props;
   return (
     <div>
-      <button className="button" onClick={() => { 
+      <button className={index==activeIndex? "button-active" : "button-inactive"}onClick={() => { 
         dispatch(setFetchApi(props.category)) ;
         dispatch(addToHistory({id: v4() ,search :props.category}));
+        setActiveIndex(index);
       }}>
         {props.category}
       </button>
@@ -25,9 +26,10 @@ function OneButton(props) {
   )
 }
 
-function Category() {
+function Category(){
+  const[activeIndex , setActiveIndex]= useState(-1);
 
-  let categories = ["Gaming", "Soccer", "Cricket league", "React JS", "Html", "css", "Javascript tutorial", "Web "];
+  let categories = ["gaming" ,"Soccer", "Cricket league", "React JS", "Html", "css", "Javascript tutorial", "Web "];
 
   const settings = {
     className: "slider variable-width",
@@ -43,13 +45,11 @@ function Category() {
     <>
       <div className="button-slider">
         <Slider {...settings}>
-          {categories.map(category => {
+          {categories.map((category,index) => {
             return (
-              <OneButton category={category} key={v4()} />
+              <OneButton category={category} index={index} activeIndex={activeIndex} setActiveIndex={setActiveIndex} key={v4()}/>
             )
-
           })}
-
         </Slider>
       </div>
     </>

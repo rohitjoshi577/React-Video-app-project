@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./header.css";
-import profilePic from "../../images/profilePic.jpg"
 import { callToggle } from "../../redux/toggleSlice";
 import { useDispatch } from "react-redux";
 import VideoTube from "../../images/videotube.png"
@@ -8,6 +7,7 @@ import { setFetchApi } from "../../redux/apiSlice";
 import { addToHistory } from "../../redux/historyslice"; 
 import { v4 } from "uuid";
 import { Link } from "react-router-dom";
+import { setFetchApi } from "../../redux/apiSlice";
 
 function Header(){
   const dispatch = useDispatch();
@@ -33,6 +33,11 @@ function Header(){
 
     setDisplayDeleteButton(false);
   }
+
+  function moveDefault(){
+    dispatch(setFetchApi("gaming"));
+  }
+
   return(
     <>
     <div className="header">
@@ -40,18 +45,17 @@ function Header(){
       <span className="material-icons" id="menu"
       onClick={()=>{ dispatch(callToggle())}}
       >menu</span>
-      <Link to="/">
-      <img src={VideoTube} alt="logo" className="logo"/>
-      <img src={VideoTube} alt="logo" className="shortlogo"/>
+      <Link to="/" style={{textDecoration:"none" , backgroundColor:"inherit" , color:"inherit"}}>
+      <img src={VideoTube} alt="logo" className="logo" onClick={moveDefault}/>
       </Link>
       </div>
       <div className="mid-header">
         <input type="text" className="search-bar" placeholder="Search" onChange={collectSearchInput}/>
-        <Link to="/">
+       <Link to="/" style={{textDecoration:"none" , backgroundColor:"inherit" , color:"inherit"}}> 
          <div className="search-icon-background" onClick={Search}>
           <span className="material-icons" id="search">search</span>
          </div>
-        </Link>
+       </Link> 
       </div>
 
       <div>
@@ -61,7 +65,7 @@ function Header(){
 
     {displayDeleteButton? <div className="delete-div">
     <button className="delete-button" onClick={deleteAllData}>
-      <span class="material-icons delete_sweep">delete_sweep</span>
+      <span className="material-icons delete_sweep">delete_sweep</span>
        <p >Delete data</p>  
     </button>
     </div>:
