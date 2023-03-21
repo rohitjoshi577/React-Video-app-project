@@ -4,10 +4,13 @@ import { callToggle } from "../../redux/toggleSlice";
 import { useDispatch } from "react-redux";
 import VideoTube from "../../images/videotube.png"
 import { setFetchApi } from "../../redux/apiSlice";
-import { addToHistory } from "../../redux/historyslice"; 
+import { addToHistory, clearHistory } from "../../redux/historyslice"; 
 import { v4 } from "uuid";
 import { Link } from "react-router-dom";
 import { setFetchApi } from "../../redux/apiSlice";
+import { ClearLike } from "../../redux/likeSlice";
+import { clearSaveVideo } from "../../redux/savedslice";
+
 
 function Header(){
   const dispatch = useDispatch();
@@ -28,9 +31,9 @@ function Header(){
   }
 
   function deleteAllData(){
-
-    console.log("deleting all data");
-
+    dispatch(ClearLike());
+    dispatch(clearHistory());
+    dispatch(clearSaveVideo());
     setDisplayDeleteButton(false);
   }
 

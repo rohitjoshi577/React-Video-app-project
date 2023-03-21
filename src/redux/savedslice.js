@@ -9,10 +9,12 @@ export const savedSlice = createSlice({
   reducers: {
     SaveVideo: (state, action) => {
       state.value = [...state.value , action.payload];
-      console.log(state.value);
-  }
+  },
+  clearSaveVideo: (state, action) => {
+    state.value = [];
+}
 }
 })
 
-export const { SaveVideo } = savedSlice.actions;
+export const { SaveVideo ,clearSaveVideo } = savedSlice.actions;
 export default savedSlice.reducer;

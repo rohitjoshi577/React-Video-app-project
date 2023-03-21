@@ -39,8 +39,6 @@ function Category(){
     variableWidth: true,
     infinite: false,
   };
-
-
   return (
     <>
       <div className="button-slider">

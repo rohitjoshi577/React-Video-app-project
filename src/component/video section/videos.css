@@ -89,15 +89,8 @@ button{
 
 .written-section{
   width: 90%;
+  font-size: 12px;
 }
-
-/* a:link,a:hover, a:active{
-  text-decoration: none;
-  color: rgb(0,0,0);
-} */
-
-
-
 
 @media screen and (min-width: 0px) {
 

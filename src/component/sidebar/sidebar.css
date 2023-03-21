@@ -1,26 +1,17 @@
-.sidebar-item{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: rgb(131, 131, 131);
-}
-
-a:hover{
-  background-color: rgb(131, 131, 131);
-  color:white;
-}
-
-
-
 .sidebar-flex-toggle{
   display: none;
 }
 
-p{
-  font-size: 12px;
+.sidebar-flex{
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-menu{
+  font-size: 16px;
   font-family: 'Roboto', sans-serif;
   margin-top: 0;
-  margin-bottom: 36px;
+  text-decoration: none;
 }
 
 .sidebar-flex{
@@ -29,9 +20,37 @@ p{
   bottom: 0;
   left: 0;
   width: 80px;
-  background-color: white;
-
 }
+
+.sidebar-item{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar-item>a{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-decoration: none;
+  color: rgb(104, 104, 104);
+  padding-top: 10px;
+}
+
+.sidebar-item>a:hover{
+  background-color: rgb(231, 230, 230);
+  color: rgb(100, 100, 100);
+}
+
+.sidebar-item>.active{
+  background-color: rgb(236, 234, 234);
+  color: rgb(100, 100, 100);
+}
+
+
 
 
 

@@ -1,7 +1,7 @@
 import React from "react";
 import "./sidebar.css";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import { setFetchApi } from "../../redux/apiSlice";
 
 function Sidebar(){
@@ -14,33 +14,35 @@ function Sidebar(){
   return(
     <>
     <div className={showSidebar ? "sidebar-flex" : "sidebar-flex-toggle"}>
-    <Link to="/" style={{textDecoration:"none" , backgroundColor:'inherit'}}>
-      <div className="sidebar-item" onClick={defaultSearch}>
-      <span className="material-icons" >home</span>
-      <p>Home</p>
-      </div>
-    </Link>
 
-      <Link to="/history" style={{textDecoration:"none" , backgroundColor:'inherit'}}>
-      <div className="sidebar-item">
-      <span className="material-icons" >history</span>
-      <p>History</p>
-      </div>
-      </Link>
-       
-      <Link to="/user/saved" style={{textDecoration:"none" , backgroundColor:'inherit'}}>
-      <div className="sidebar-item">
-      <span className="material-icons" >subscriptions</span>
-      <p>Saved</p>
-      </div>
-      </Link>
+    <div className="sidebar-item" onClick={defaultSearch}>
+     <NavLink to="/" >
+      <span className="material-icons home" >home</span>
+      <p className="sidebar-menu">Home</p>
+     </NavLink>
+    </div>
 
-      <Link to="/user/liked" style={{textDecoration:"none" , backgroundColor:'inherit'}}>
-      <div className="sidebar-item">
-      <span className="material-icons" >thumb_up</span>
-      <p>Liked</p>
-      </div>
-      </Link>
+    <div className="sidebar-item" >
+      <NavLink to="/history" >
+       <span className="material-icons history" >history</span>
+       <p className="sidebar-menu">History</p>
+      </NavLink>
+    </div>
+
+    <div className="sidebar-item">
+      <NavLink to="/user/saved" >
+       <span className="material-icons subscriptions" >subscriptions</span>
+       <p className="sidebar-menu">Saved</p>
+      </NavLink>
+    </div>
+      
+    <div className="sidebar-item">
+      <NavLink to="/user/liked"  >
+       <span className="material-icons thumb_up" >thumb_up</span>
+       <p className="sidebar-menu">Liked</p>
+      </NavLink>
+    </div>
+    
     </div>
     </>
   )

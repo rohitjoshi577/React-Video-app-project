@@ -30,7 +30,7 @@ function UserPage(){
         <div className="all-video-grid">
         {videosData.map((object)=>{
           return(
-          <Link to={`/watch/${object?.id}`} key={object?.id}>
+          <Link to={`/watch/${object?.id}`} key={object?.id} style={{textDecoration: 'none' , backgroundColor:"inherit" , color:"inherit"}}>
             <VideoCard object={object}  />
           </Link>
           )

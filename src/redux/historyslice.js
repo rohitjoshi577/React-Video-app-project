@@ -9,11 +9,13 @@ export const historySlice = createSlice({
   reducers: {
     addToHistory: (state, action) => {
       state.value = [...state.value,action.payload];
+  },
+  clearHistory:(state,action)=>{
+    state.value =[];
   }
-
 }
 })
 
-export const { addToHistory } = historySlice.actions
+export const { addToHistory , clearHistory} = historySlice.actions
 
 export default historySlice.reducer;

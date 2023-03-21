@@ -10,6 +10,11 @@ export const likeSlice = createSlice({
     StoreLike: (state, action) => {
     state.value = [...state.value , action.payload];
   },
+
+  ClearLike: (state, action) => {
+    state.value = [];
+  },
+
   removeLike :(state, action)=>{
     state.value = state.value.filter((videoId)=>{
       if(videoId != action.payload){
@@ -19,7 +24,7 @@ export const likeSlice = createSlice({
           
 })
 
-export const {StoreLike ,removeLike} = likeSlice.actions;
+export const {StoreLike ,removeLike , ClearLike} = likeSlice.actions;
 
 export default likeSlice.reducer;
 
