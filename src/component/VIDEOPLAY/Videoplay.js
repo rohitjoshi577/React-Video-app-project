@@ -5,6 +5,7 @@ import { ToggleOff } from "../../redux/toggleSlice";
 import "./videoplay.css";
 import { StoreLike ,removeLike} from "../../redux/likeSlice";
 import { SaveVideo } from "../../redux/savedslice";
+import { subscribeChannel  , unsubscribeChannel} from "../../redux/SubscribeSlice";
 
 
 
@@ -60,9 +61,8 @@ function VideoDetail(){
     
     fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoObjectId}&key=${google_api_key}`)
       .then(response => response.json())
-      .then(response => setVideoData(response.items[0])
-      );
-  }
+      .then(response => {setVideoData(response.items[0])});
+    }
 
   const initialLikevValue = !useSelector(store=>store.like.value.includes(videoObjectId));
   const initialsavevalue =  useSelector(store=>store.saved.value.includes(videoObjectId));
@@ -176,15 +176,25 @@ function Download(){
 
 
 function Subscribe (props){
-  const [subscribed , setsubscribed] = useState(false);
+  const subscribedBefore = useSelector(store=> store.subscribe.value.includes(props.channelID));
+  const [subscribed , setsubscribed] = useState(true);
+  
+
+  useEffect(
+    ()=>{setsubscribed(subscribedBefore);
+    },
+    [subscribedBefore]);
+
+
+  const dispatch = useDispatch();
   function subscribe(id){
     setsubscribed(true);
-    console.log(id +"add");
+    dispatch(subscribeChannel(id));
   }
 
   function unsubscribe(id){
     setsubscribed(false);
-    console.log(id +"removed");
+    dispatch(unsubscribeChannel(id));
   }
   return(
     <>
@@ -193,7 +203,6 @@ function Subscribe (props){
     :
     <button className="videoplay-subscribe-button" onClick={()=>{subscribe(props.channelID)}}>Subscribe {props.channelName} </button>
     }
-
     </>
   )
 }

@@ -8,6 +8,7 @@ import VideoPlay from './component/VIDEOPLAY/Videoplay';
 import ErrorPage from './component/ErrorPage/errorpage';
 import History from './component/history/history';
 import UserPage from './component/Userpages/userpage';
+import Channels from './component/Subscriptions/subscriptions';
 
 
 function App(){
@@ -22,6 +23,7 @@ function App(){
         <Route path="*" element={<ErrorPage/>} />
         <Route path ="history" element={<History/>} />
         <Route path ="user/:page" element={<UserPage/>}/>
+        <Route path ="/subscriptions" element={<Channels/>}/>
 
       </Routes>
       </>

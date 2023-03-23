@@ -1,0 +1,61 @@
+.subscribe-page-container{
+  margin-top: 60px;
+  margin-left: 80px;
+}
+
+
+.subscribe-page-container-toggle{
+  margin-top: 60px;
+  margin-left: 0px;
+}
+
+.total-subscriptions{
+  padding: 5px;
+  font-weight: 100;
+  font-size: 30px;
+  color: rgb(7, 29, 46);
+  text-align: center;
+  background-color: aliceblue;
+  border-radius: 10px;
+}
+
+
+.subscription-container{
+  margin-bottom: 20px;
+  margin-left: 10px;
+  border-radius: 10px;
+  background-color: rgb(241, 146, 146);
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  justify-content: space-between;
+}
+
+.thumbnail-of-channel{
+  height: 60px;
+  border-radius: 30px;
+  margin-left: 20px;
+}
+
+.unsubscribe-button-subscription-page{
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  width: 50%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: rgb(202, 139, 139);
+  padding: 10px;
+  font-size: 20px;
+}
+
+
+.unsubscribe-button-subscription-page:hover{
+  background-color: rgb(247, 195, 195);
+  color:white;
+}
+
+
+
+
+

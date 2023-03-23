@@ -31,7 +31,7 @@ function Sidebar(){
 
     <div className="sidebar-item">
       <NavLink to="/user/saved" >
-       <span className="material-icons subscriptions" >subscriptions</span>
+       <span className="material-icons create_new_folder" >create_new_folder</span>
        <p className="sidebar-menu">Saved</p>
       </NavLink>
     </div>
@@ -40,6 +40,15 @@ function Sidebar(){
       <NavLink to="/user/liked"  >
        <span className="material-icons thumb_up" >thumb_up</span>
        <p className="sidebar-menu">Liked</p>
+      </NavLink>
+    </div>
+
+
+
+    <div className="sidebar-item">
+      <NavLink to="/subscriptions"  >
+       <span className="material-icons subscriptions" >subscriptions</span>
+       <p className="sidebar-menu">Channels</p>
       </NavLink>
     </div>
     
