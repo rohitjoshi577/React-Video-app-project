@@ -26,7 +26,7 @@ function UserPage(){
 
       return (
       <div className={toggle?"userpage-body":"userpage-body-toggle"}>
-        <div className="total">{videosData?.length} videos {useParams().page} </div>
+        <div className="total"> Total {useParams().page} videos ({videosData?.length}) </div>
         <div className="all-video-grid">
         {videosData.map((object)=>{
           return(

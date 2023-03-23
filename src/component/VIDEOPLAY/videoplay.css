@@ -48,7 +48,7 @@
   font-size: 18px;
   margin-bottom: 10px;
   font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 @media (max-width: 375px) {
@@ -69,8 +69,8 @@
   border-radius: 10px;
   justify-content:space-between;
   height: 50px;
-  color: rgb(255, 253, 164);
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(0, 1, 70);
+  color: rgb(255, 255, 255);
 
 }
 
@@ -81,13 +81,11 @@
 }
 
 
-
 .channel-name-videoplay{
   margin : 0;
   font-size: 16px;
-  margin-left: 5px;
-  font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 8px;
+  font-weight: 300;
 }
 
 
@@ -95,13 +93,48 @@
   margin-right: 20px;
 }
 
+
+
+.videoplay-subscribe-button{
+  background-color:rgb(241, 146, 146);
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 10px;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.videoplay-subscribe-button:hover{
+  background-color: rgb(240, 153, 153);
+}
+
+.videoplay-unsubscribe-button{
+  background-color:rgb(3, 212, 120);
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 10px;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.videoplay-unsubscribe-button:hover{
+  background-color: rgb(3, 204, 120);
+}
+
+
+
+
+
 .description-videoplay{
   background-color: rgba(248, 248, 248,0.5);
   margin-top: 20px;
   border-radius: 20px;
   line-height: 20px;
   word-wrap: break-word;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .description-of-video{
@@ -109,7 +142,6 @@
   color: rgb(114, 114, 114);
   margin-bottom: 0;
   width: 100%;
-  padding: 8px;
 }
 
 .queue ,.thumb_up ,.thumb_down ,.channel-name-videoplay ,.playlist_add_check_circle ,.file_download {

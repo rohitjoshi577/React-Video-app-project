@@ -3,7 +3,7 @@ import "./videos.css";
 import Shimmer from "../ShimmerUI/Shimmer";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { ToggleOn } from "../../redux/toggleSlice";
+import { ToggleOn , ToggleOff} from "../../redux/toggleSlice";
 import { useSelector } from "react-redux";
 import { v4 } from "uuid";
 
@@ -15,7 +15,12 @@ function Video(){
   
   const [Videos , setVideos] = useState([]);
   useEffect(()=>{
+    if(window.innerWidth>340)
     dispatch(ToggleOn());
+    else{
+      dispatch(ToggleOff())
+
+    }
   } ,[])
 
   useEffect(()=>{

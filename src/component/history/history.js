@@ -19,7 +19,7 @@ function History(){
 
    return(
     <div className={toggle? "history-body":"history-body-toggle"}>
-     <p className='total-history'>{history.length} searches</p>
+     <p className='total-history'>Total searches ({history.length})</p>
     {history.map((history)=>{
       return(
         <Link to="/" key = {history?.id}>

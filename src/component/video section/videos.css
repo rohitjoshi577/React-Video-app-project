@@ -22,7 +22,6 @@
   flex-direction: column;
   align-items: center;
   border-radius: 5px;
-  font-family: 'Roboto', sans-serif;
   box-shadow: 1px 2px 2px rgba(0,0,0,0.1);
 }
 
@@ -32,7 +31,7 @@
 }
 
 #play_circle_show{
-  color: #23ffeb;
+  color: #23ffeb; 
   position: absolute;
   top: 22%;
   left: 30%;

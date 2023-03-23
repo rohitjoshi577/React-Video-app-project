@@ -60,7 +60,8 @@ function VideoDetail(){
     
     fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoObjectId}&key=${google_api_key}`)
       .then(response => response.json())
-      .then(response => setVideoData(response.items[0]));
+      .then(response => setVideoData(response.items[0])
+      );
   }
 
   const initialLikevValue = !useSelector(store=>store.like.value.includes(videoObjectId));
@@ -85,7 +86,6 @@ function VideoDetail(){
     setsaved(true);
   }
 
-console.log(videoData?.snippet);
   return(
     <>
     <div className={showSidebar? "video-description-toggle":"video-description"}>
@@ -115,7 +115,7 @@ console.log(videoData?.snippet);
 
       </div>
 
-      {/* <Subscribe channelID = {videoData?.author?.channelId}  channelName ={videoData?.author?.title}/> */}
+      <Subscribe channelID = {videoData?.snippet?.channelId}  channelName ={videoData?.snippet?.channelTitle}/> 
 
       <Description videoData={videoData}/>
 
@@ -131,8 +131,10 @@ function Description(props){
   return(
     <>
     <div className="description-videoplay"  >
-    <p className="description-of-video"> description </p>
+    <p style={{textAlign:"center" , marginBottom:"0px" , paddingTop:"10px"}}> description </p>
+    <div style={{padding:"10px"}}>
     <p className="description-of-video" >{props.videoData?.snippet?.description}</p>
+    </div>
     </div> 
     </>
   )
@@ -173,15 +175,28 @@ function Download(){
 }
 
 
-// function Subscribe (props){
-//   console.log(props);
-//   return(
-//     <>
-//     <button>Subscribe {props.channelName} </button>
-    
-//     </>
-//   )
-// }
+function Subscribe (props){
+  const [subscribed , setsubscribed] = useState(false);
+  function subscribe(id){
+    setsubscribed(true);
+    console.log(id +"add");
+  }
+
+  function unsubscribe(id){
+    setsubscribed(false);
+    console.log(id +"removed");
+  }
+  return(
+    <>
+    {subscribed?
+    <button className="videoplay-unsubscribe-button" onClick={()=>{unsubscribe(props.channelID)} }>Unsubscribe {props.channelName} </button>
+    :
+    <button className="videoplay-subscribe-button" onClick={()=>{subscribe(props.channelID)}}>Subscribe {props.channelName} </button>
+    }
+
+    </>
+  )
+}
 
 
 export default VideoPlay;

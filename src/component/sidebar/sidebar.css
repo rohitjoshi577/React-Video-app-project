@@ -9,7 +9,6 @@
 
 .sidebar-menu{
   font-size: 16px;
-  font-family: 'Roboto', sans-serif;
   margin-top: 0;
   text-decoration: none;
 }
@@ -18,8 +17,8 @@
   position: fixed;
   top: 60px;
   bottom: 0;
-  left: 0;
-  width: 80px;
+  left: 4px;
+  width: 75px;
 }
 
 .sidebar-item{
@@ -41,13 +40,17 @@
 }
 
 .sidebar-item>a:hover{
-  background-color: rgb(231, 230, 230);
-  color: rgb(100, 100, 100);
+  background-color: rgb(243, 255, 255);
+  color: rgb(68, 68, 68);
+  border-radius: 10px;
+
 }
 
 .sidebar-item>.active{
-  background-color: rgb(236, 234, 234);
-  color: rgb(100, 100, 100);
+  background-color: rgb(218, 219, 255);
+  color: rgb(27, 27, 27);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4);
 }
 
 
