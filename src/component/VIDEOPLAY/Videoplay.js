@@ -56,17 +56,11 @@ function VideoDetail(){
 
   async function getVideoDetails(){
 
-    const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Key': '1000493ad2mshb4ce9754a05dffdp192ce9jsn86b5b0b976e4',
-        'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
-      }
-    };
+    const google_api_key = 'AIzaSyBfB1P9ePJPU_V35m5JZkvMMIB7MvtsZl0';
     
-    fetch(`https://youtube138.p.rapidapi.com/video/details/?id=${videoObjectId}&hl=en&gl=US`, options)
+    fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoObjectId}&key=${google_api_key}`)
       .then(response => response.json())
-      .then(response => setVideoData(response));
+      .then(response => setVideoData(response.items[0]));
   }
 
   const initialLikevValue = !useSelector(store=>store.like.value.includes(videoObjectId));
@@ -91,15 +85,14 @@ function VideoDetail(){
     setsaved(true);
   }
 
-
+console.log(videoData?.snippet);
   return(
     <>
     <div className={showSidebar? "video-description-toggle":"video-description"}>
-      <p className="chammel-title-videoplay">{videoData?.title}</p>
+      <p className="channel-title-videoplay">{videoData?.snippet?.title}</p>
       <div className="channel-flex">
         <div className="channel-name-flex">
-        <img src={videoData?.author?.avatar[1]?.url} alt="" className="channel-image"/>
-        <p className="channel-name-videoplay">{videoData?.author?.title}</p>
+        <p className="channel-name-videoplay">{videoData?.snippet?.channelTitle}</p>
         </div>
 
 
@@ -139,7 +132,7 @@ function Description(props){
     <>
     <div className="description-videoplay"  >
     <p className="description-of-video"> description </p>
-    <p className="description-of-video" >{props.videoData?.description}</p>
+    <p className="description-of-video" >{props.videoData?.snippet?.description}</p>
     </div> 
     </>
   )
