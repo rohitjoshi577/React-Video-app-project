@@ -2,7 +2,6 @@
   "name": "youtube-react-project",
   "version": "1.0.0",
   "description": "This is a react youtube project from scratch with amazing features",
-  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
@@ -10,22 +9,22 @@
   },
   "author": "Rohit Joshi",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.21.0",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@swc/helpers": "^0.4.12",
     "babel": "^6.23.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "parcel": "^2.8.3",
     "process": "^0.11.10",
-    "util": "^0.12.5"
-  },
-  "dependencies": {
-    "@reduxjs/toolkit": "^1.9.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.3.0",
     "react-slick": "^0.29.0",
+    "react-toastify": "^9.1.2",
     "slick-carousel": "^1.8.1",
+    "util": "^0.12.5",
     "uuid": "^9.0.0"
   },
   "browserslist": [

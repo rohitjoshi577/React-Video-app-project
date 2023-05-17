@@ -1,0 +1,34 @@
+.error-page{
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+
+.error-page{
+  margin-top: 60px;
+  margin-left: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+
+.error-button{
+  background-color: rgb(189, 223, 255);
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(185, 185, 185, 0.3);
+}
+
+
+.error-button:hover{
+  background-color: rgb(131, 186, 236);
+}

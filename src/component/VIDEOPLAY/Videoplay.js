@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ToggleOff } from "../../redux/toggleSlice";
 import "./videoplay.css";
 import { StoreLike ,removeLike} from "../../redux/likeSlice";
 import { SaveVideo } from "../../redux/savedslice";
-import { subscribeChannel  , unsubscribeChannel} from "../../redux/SubscribeSlice";
+import { subscribeChannel, unsubscribeChannel } from "../../redux/SubscribeSlice";
+import { toast } from 'react-toastify';
 
 
 
 function VideoPlay(){
   const dispatch = useDispatch();
   let showSidebar = useSelector(store=>store.toggle.value);
-  const videoObjectId= useParams().id;
+  const videoObjectId = useParams().id;
 
   useEffect(()=>{
     dispatch(ToggleOff());
   },[]);
-
-
-
 
   return(
     <>
@@ -32,7 +30,7 @@ function VideoPlay(){
       height="100%" 
       src={`https://www.youtube.com/embed/${videoObjectId}`} 
       title="YouTube video player" 
-      frameBorder="0"
+      frameBorder="0"      
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
       allowFullScreen></iframe>
     </div>
@@ -74,16 +72,46 @@ function VideoDetail(){
   function Like(id){
     dispatch(StoreLike(id))
     setLike(false);
+    toast.success('video liked', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
   }
 
   function Dislike(id){
     dispatch(removeLike(id))
     setLike(true);
+    toast.error('video disliked', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
   }
 
   function saveVideo(id){
     dispatch(SaveVideo(id));
     setsaved(true);
+    toast.success('video is saved', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
   }
 
   return(
@@ -152,23 +180,40 @@ function Download(){
     useEffect(()=>{
       download();
     },[])
-    function download(){
-      const options = {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Key': '1000493ad2mshb4ce9754a05dffdp192ce9jsn86b5b0b976e4',
-          'X-RapidAPI-Host': 'youtube-video-download-info.p.rapidapi.com'
-        }
-      }; 
-      fetch(`https://youtube-video-download-info.p.rapidapi.com/dl?id=${id}`, options)
-        .then(response => response.json())
-        .then(response => setLink(response?.link['17'][0]))
+  function download() {
+    
+
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': 'a056349e46msh57e9daf327afbc6p1c1e75jsn49c270fdf36f',
+        'X-RapidAPI-Host': 'ytstream-download-youtube-videos.p.rapidapi.com'
+      }
+    };
+    
+    fetch(`https://ytstream-download-youtube-videos.p.rapidapi.com/dl?id=${id}`, options)
+      .then(response => response.json())
+      .then(response => setLink(response.adaptiveFormats[0].url))
         .catch(err => console.error(err));
+        
     }
     return (
     <div>
     <a href={link=""? null : link} target="_blank" style={{textDecoration:"none" , backgroundColor:"inherit" , color:"inherit"}}>
-    <span className="material-icons file_download" onClick={download}>file_download</span>
+          <span className="material-icons file_download" onClick={()=>{
+            download();
+            toast.info('download video from next page', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+              });
+          }
+            }>file_download</span>
     </a>
     </div>
   )
@@ -177,7 +222,8 @@ function Download(){
 
 function Subscribe (props){
   const subscribedBefore = useSelector(store=> store.subscribe.value.includes(props.channelID));
-  const [subscribed , setsubscribed] = useState(true);
+  const [subscribed, setsubscribed] = useState(true);
+  
   
 
   useEffect(
@@ -187,6 +233,7 @@ function Subscribe (props){
 
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   function subscribe(id){
     setsubscribed(true);
     dispatch(subscribeChannel(id));
@@ -196,13 +243,31 @@ function Subscribe (props){
     setsubscribed(false);
     dispatch(unsubscribeChannel(id));
   }
+
   return(
     <>
     {subscribed?
     <button className="videoplay-unsubscribe-button" onClick={()=>{unsubscribe(props.channelID)} }>Unsubscribe {props.channelName} </button>
     :
     <button className="videoplay-subscribe-button" onClick={()=>{subscribe(props.channelID)}}>Subscribe {props.channelName} </button>
-    }
+      }
+
+
+      <button className="go-to-subscribe-button" onClick={() => {
+        navigate(`/channel/${props.channelID}`);
+        toast.success(`opening ${props.channelName} official page`, {
+          position: "top-right",
+          autoClose: 2500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+      }}>visit {props.channelName} page</button>
+      
+
     </>
   )
 }

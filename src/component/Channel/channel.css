@@ -1,0 +1,49 @@
+.channel-body{
+  margin-left: 100px;
+  margin-top: 80px;
+}
+
+.channel-noToggle{
+  margin-top: 80px;
+  margin-left: 2px;
+}
+
+.profile-div{
+  width: 100%;
+  background: linear-gradient(135deg, #9b0303, #11019E);
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -5px;
+}
+
+
+.channel-name{
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  margin-top: 14px;
+  margin-left: 10px;
+  
+}
+
+.profile{
+
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  margin-top: 15px;
+}
+
+
+.bg-image{
+  width: 100%;
+}
+
+.subs-count{
+  color: white;
+  margin-top: 0px;
+}

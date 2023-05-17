@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./subscriptions.css"
 import { useDispatch, useSelector} from 'react-redux';
 import { unsubscribeChannel } from "../../redux/SubscribeSlice";
+import { useNavigate } from "react-router-dom";
 
 function Channels(){
   let toggle = useSelector(store=>store.toggle.value);
   let subscribedChannelsId= useSelector(store=> store.subscribe.value);
   const [data , setData] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function unsubscribe(id){
     dispatch(unsubscribeChannel(id));
@@ -32,8 +34,9 @@ function Channels(){
     {data?.map((object)=>{
       return(
       <div key={object.id} className="subscription-container">
-        <img src={object?.snippet?.thumbnails?.high?.url} alt="" className="thumbnail-of-channel"/>
-        <button className="unsubscribe-button-subscription-page" onClick={()=>{unsubscribe(object?.id)}}>unsubscribe {object?.snippet?.title} </button>
+          <img src={object?.snippet?.thumbnails?.high?.url} alt="" className="thumbnail-of-channel" onClick={() => { navigate(`/channel/${object?.id}`) }} />
+          <button className="unsubscribe-button-subscription-page" onClick={() => { unsubscribe(object?.id) }}>unsubscribe {object?.snippet?.title} </button>
+          <button className="go-to-subscription-page" onClick={() => { navigate(`/channel/${object?.id}`) }}>Visit  {object?.snippet?.title} page</button>
       </div>
       )
     })}

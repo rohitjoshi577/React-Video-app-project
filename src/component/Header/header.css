@@ -50,13 +50,7 @@
 }
 
 .search-bar:focus{
-  border-color: rgb(117, 117, 117);
   outline: none;
-}
-
-.search-bar::placeholder{
-  font-size: 18px;
-  
 }
 
 .search-icon-background{
@@ -162,49 +156,26 @@
   }
 }
 
-.delete-div{
-  position:fixed;
-  top:40px;
-  right: 0px;
-  border-radius: 4px;
-  background-color: rgb(255, 255, 255);
-  z-index: 5;
-  width: 70px;
-  
+.auto_delete{
+  color: black;
+  padding: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.auto_delete:hover{
+  color:  black;
+  background-color: rgb(241, 241, 241);
+  border-radius: 8px;
 }
 
 
-.settings{
-  color: rgb(117, 117, 117);
-}
 
 
-.settings:hover{
-  color: rgb(0, 0, 0);
-}
 
-.settings:active{
-  color: rgb(0, 0, 0);
-}
 
-.delete-button{
-  background-color: rgb(214, 214, 214);
-  border-radius: 5px;
-  border-width : 0;
-  padding: 5px;
-  font-size: 14px;
-  color: rgb(109, 0, 0);
-  font-weight: bold;
-  padding: 2px;
 
-}
 
-.delete-button:hover{
-  background-color: white;
-  color: rgb(143, 0, 0);
-  border-color: rgb(143, 0, 0);
-  border-width: 1px;
-}
 
 
 

@@ -16,10 +16,10 @@ function Video(){
   const [Videos , setVideos] = useState([]);
   useEffect(()=>{
     if(window.innerWidth>340)
-    dispatch(ToggleOn());
+      dispatch(ToggleOn());
+      
     else{
       dispatch(ToggleOff())
-
     }
   } ,[])
 
@@ -40,9 +40,8 @@ function Video(){
   }
   return(<>
   {(Videos?.length==0)? <Shimmer/> : 
-  <>
-  <AllVideos Videos={Videos}/>
-  </>}
+  
+  <AllVideos Videos={Videos}/>}
   </>)
 
 
@@ -73,7 +72,6 @@ function Video(){
         </div>
           <div className="written-section">
               <p className="title">{props.video?.title?.slice(0, 30)}.....</p>
-             <p className="channel-name"> {props.video?.author}</p>
                 <div className="button-flex">
                 <div>
                   <p className="data">Views  {props.video?.number_of_views}</p></div>
